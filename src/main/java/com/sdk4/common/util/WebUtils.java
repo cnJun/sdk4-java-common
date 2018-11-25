@@ -1,6 +1,7 @@
 package com.sdk4.common.util;
 
 import com.google.common.collect.Maps;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -57,13 +58,28 @@ public class WebUtils {
         return headers;
     }
 
+    public static Map<String, String> getParameterMap(HttpServletRequest request) {
+        Map<String, String> params = Maps.newHashMap();
+
+        Enumeration<String> names = request.getParameterNames();
+        while (names.hasMoreElements()) {
+            String key = names.nextElement();
+            String val = request.getParameter(key);
+            if (StringUtils.isNotEmpty(val)) {
+                params.put(key, val);
+            }
+        }
+
+        return params;
+    }
+
     public static String getStreamAsString(InputStream stream, String charset) throws IOException {
         try {
             Reader reader = new InputStreamReader(stream, charset);
             StringBuilder response = new StringBuilder();
 
             final char[] buff = new char[4096];
-            int read = 0;
+            int read;
             while ((read = reader.read(buff)) > 0) {
                 response.append(buff, 0, read);
             }

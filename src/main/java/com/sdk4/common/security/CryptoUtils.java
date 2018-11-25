@@ -12,7 +12,6 @@ import java.security.GeneralSecurityException;
  * 签名/加解密工具
  *
  * @author sh
- * @date 2018/10/30
  */
 public class CryptoUtils {
     private static final String ALG_HMACSHA1 = "HmacSHA1";
