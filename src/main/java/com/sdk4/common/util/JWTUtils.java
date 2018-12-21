@@ -19,6 +19,10 @@ import java.util.Map;
  * Created by sh on 2018/6/20.
  */
 public class JWTUtils {
+    private JWTUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final String SECRET = "JWT-secret-forsdk4.2018.key";
     private static final String DEFAULT_ISS = "SDK4.COM";
     private static final int DEFAULT_EXPIRE_DAYS = 100;

@@ -8,6 +8,9 @@ import com.google.common.io.BaseEncoding;
  * @author sh
  */
 public class EncodeUtils {
+    private EncodeUtils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static String encodeHex(byte[] input) {
         return BaseEncoding.base16().encode(input);

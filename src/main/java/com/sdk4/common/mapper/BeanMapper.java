@@ -10,6 +10,10 @@ import java.util.List;
  * 实现深度的BeanOfClasssA到BeanOfClassB复制
  */
 public class BeanMapper {
+    private BeanMapper() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static Mapper mapper = new DozerBeanMapper();
 
     /**
@@ -35,7 +39,7 @@ public class BeanMapper {
      * @return 目的对象实例列表
      */
     public static <S, D> List<D> mapList(Iterable<S> sourceList, Class<D> destinationClass) {
-        List<D> destionationList = new ArrayList<D>();
+        List<D> destionationList = new ArrayList<>();
         for (S source : sourceList) {
             if (source != null) {
                 destionationList.add(mapper.map(source, destinationClass));

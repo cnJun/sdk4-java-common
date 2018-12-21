@@ -9,12 +9,18 @@ import java.util.Date;
  * @author sh
  */
 public class DateUtils {
+    private DateUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Date parseDate(String str) {
         Date result = null;
 
         try {
             if (str.length() == 19 && str.contains("-") && str.contains(":")) {
                 result = DateTime.parse(str, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")).toDate();
+            } else if (str.length() == 16 && str.contains("-") && str.contains(":")) {
+                result = DateTime.parse(str, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm")).toDate();
             } else if (str.length() == 14) {
                 result = DateTime.parse(str, DateTimeFormat.forPattern("yyyyMMddHHmmss")).toDate();
             } else if (str.length() == 10 && str.contains("-")) {

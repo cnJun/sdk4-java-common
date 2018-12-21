@@ -9,6 +9,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author sh
  */
 public class IdUtils {
+    private IdUtils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static UUID fastUUID() {
         ThreadLocalRandom random = ThreadLocalRandom.current();

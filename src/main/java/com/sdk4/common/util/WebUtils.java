@@ -15,6 +15,10 @@ import java.util.Map;
  * @author sh
  */
 public class WebUtils {
+    private WebUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final String DEFAULT_CHARSET = "UTF-8";
     private static final String[] IP_HEADERS = { "X-Forwarded-For", "Proxy-Client-IP", "WL-Proxy-Client-IP", "X-Real-IP", "NS-Client-IP" };
 

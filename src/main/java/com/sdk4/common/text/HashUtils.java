@@ -11,6 +11,9 @@ import java.security.SecureRandom;
  * 封装各种Hash算法的工具类
  */
 public class HashUtils {
+    private HashUtils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static final ThreadLocal<MessageDigest> MD5_DIGEST = createThreadLocalMessageDigest("MD5");
     private static final ThreadLocal<MessageDigest> SHA_1_DIGEST = createThreadLocalMessageDigest("SHA-1");

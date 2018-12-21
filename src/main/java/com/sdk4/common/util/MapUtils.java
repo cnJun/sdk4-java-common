@@ -19,6 +19,10 @@ import java.util.*;
  * @author sh
  */
 public class MapUtils {
+    private MapUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static Logger log = LoggerFactory.getLogger(MapUtils.class);
 
     /**

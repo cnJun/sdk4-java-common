@@ -7,6 +7,9 @@ import java.nio.charset.StandardCharsets;
  * @author sh
  */
 public class Charsets {
+    private Charsets() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static final Charset UTF_8 = StandardCharsets.UTF_8;
     public static final Charset US_ASCII = StandardCharsets.US_ASCII;

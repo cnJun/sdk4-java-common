@@ -7,6 +7,10 @@ import java.util.List;
  * @author sh
  */
 public class ClassUtils {
+    private ClassUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private final static List<Class<?>> _PrimitiveClasses = new ArrayList<Class<?>>() {
         {
             add(Boolean.class);
